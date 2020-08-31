@@ -1,6 +1,8 @@
 package com.sda.jpa.dao;
 
+import com.sda.jpa.model.Department;
 import com.sda.jpa.model.Worker;
+import com.sda.jpa.utils.JpaHelper;
 
 import java.util.List;
 
@@ -24,7 +26,13 @@ public class WorkerDao implements GenericDao<Worker> {
 
     @Override
     public Worker save(Worker entity) {
-        return null;
+        JpaHelper.doInTransaction((entityManager -> {
+            Department department = entityManager.find(Department.class, entity.getDepartment().getDepartmentId());
+            entity.setDepartment(department);
+            entityManager.persist(entity);
+        }));
+
+        return entity;
     }
 
     @Override

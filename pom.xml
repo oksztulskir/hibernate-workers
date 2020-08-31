@@ -20,16 +20,27 @@
         </plugins>
     </build>
 
+    <properties>
+        <hibernate.version>5.0.12.Final</hibernate.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.0.12.Final</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.20</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-java8 -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-java8</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
     </dependencies>
 </project>

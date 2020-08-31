@@ -27,12 +27,23 @@ public class Worker {
     @JoinColumn(name = "department_id")
     private Department department;
 
+    public Worker() {
+    }
+
     public long getWorkerId() {
         return workerId;
     }
 
     public void setWorkerId(long workerId) {
         this.workerId = workerId;
+    }
+
+    public Worker(String firstName, String lastName, int age, LocalDateTime hireDate, Department department) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.hireDate = hireDate;
+        this.department = department;
     }
 
     public String getFirstName() {
@@ -74,4 +85,19 @@ public class Worker {
     public void setDepartment(Department department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return "Worker{" +
+                "workerId=" + workerId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", hireDate=" + hireDate +
+                ", department=" + department +
+                '}';
+    }
+
+
+
 }

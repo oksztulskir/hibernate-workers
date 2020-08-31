@@ -1,6 +1,7 @@
 package com.sda.jpa.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  */
@@ -12,6 +13,12 @@ public class Department {
 
     @Column(nullable = false)
     private String name;
+
+    @OneToMany(
+            mappedBy = "department",
+            cascade = CascadeType.REMOVE,
+            orphanRemoval = true)
+    private List<Worker> workers;
 
     public Department() {
     }
@@ -36,6 +43,14 @@ public class Department {
         this.name = name;
     }
 
+    public List<Worker> getWorkers() {
+        return workers;
+    }
+
+    public void setWorkers(List<Worker> workers) {
+        this.workers = workers;
+    }
+
     @Override
     public String toString() {
         return "Department{" +
@@ -43,4 +58,6 @@ public class Department {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+
 }
