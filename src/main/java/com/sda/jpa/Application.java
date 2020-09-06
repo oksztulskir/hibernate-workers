@@ -1,18 +1,14 @@
 package com.sda.jpa;
 
-import com.sda.jpa.dao.DepartmentDao;
-import com.sda.jpa.dao.WorkerDao;
-import com.sda.jpa.model.Department;
-import com.sda.jpa.model.Worker;
-import com.sda.jpa.model.WorkerBuilder;
+import com.sda.jpa.View.menu.MainMenu;
 
-import java.time.LocalDateTime;
+import java.io.IOException;
 
 /**
  */
 public class Application {
-    public static void main(String[] args) {
-        DepartmentDao departmentDao = new DepartmentDao();
+    public static void main(String[] args) throws IOException {
+//        DepartmentDao departmentDao = new DepartmentDao();
 //        Department savedDepartment = departmentDao.save(new Department("Department name 2"));
 //        System.out.println("Saved department: " + savedDepartment);
 //
@@ -28,18 +24,21 @@ public class Application {
 //        department.setDepartmentId(3);
 //        departmentDao.update(department);
 
-        Department department = new Department();
-        department.setDepartmentId(3L);
-        Worker worker = new WorkerBuilder()
-                .setFirstName("First")
-                .setLastName("Last")
-                .setAge(30)
-                .setHireDate(LocalDateTime.now())
-                .setDepartment(department)
-                .createWorker();
-        WorkerDao workerDao = new WorkerDao();
-        System.out.println("Added worker: " + workerDao.save(worker));
+//        Department department = new Department();
+//        department.setDepartmentId(5L);
+//        Worker worker = new WorkerBuilder()
+//                .setFirstName("First")
+//                .setLastName("Last")
+//                .setAge(30)
+//                .setHireDate(LocalDateTime.now())
+//                .setDepartment(department)
+//                .createWorker();
+//        WorkerDao workerDao = new WorkerDao();
+//        System.out.println("Added worker: " + workerDao.save(worker));
 
-        departmentDao.delete(3L);
+//        departmentDao.delete(3L);
+
+        MainMenu mainMenu = new MainMenu();
+        mainMenu.doAction();
     }
 }
